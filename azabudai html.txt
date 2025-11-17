@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>男性更年期ケアサービス - デモ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+        const { ArrowLeft, TestTube, ClipboardCheck, Video, Calendar } = lucideReact;
+
+        const MensHealthDemo = () => {
+          const [currentPage, setCurrentPage] = useState('home');
+
+          const HomePage = () => (
+            <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+              <div className="max-w-6xl mx-auto mb-8">
+                <div className="bg-white rounded-2xl shadow-lg p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h1 className="text-4xl font-bold text-indigo-900">男性更年期ケアサービス</h1>
+                    <div className="text-right">
+                      <div className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-1 rounded-full text-xs mb-1">
+                        提携医療機関
+                      </div>
+                      <p className="text-xs text-gray-500">医療法人社団 なかよし会</p>
+                      <p className="text-lg font-bold text-gray-700">麻布台クリニック</p>
+                      <p className="text-xs text-gray-500">麻布台ヒルズ タワープラザ 4F</p>
+                    </div>
+                  </div>
+                  <p className="text-lg text-gray-600">血液検査とAMSスコアで、あなたの健康をトータルサポート</p>
+                </div>
+              </div>
+
+              <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-3 gap-6 mb-6">
+                  <div 
+                    onClick={() => setCurrentPage('tasso')}
+                    className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="bg-red-100 p-2 rounded-full mr-3">
+                        <TestTube className="w-6 h-6 text-red-600" />
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-800">TASSO血液検査</h2>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-3">
+                      自宅で簡単にできる血液検査キット。テストステロン値など、男性ホルモンの状態を正確に測定します。
+                    </p>
+                    <div className="flex items-center text-indigo-600 font-semibold text-sm">
+                      <Video className="w-4 h-4 mr-2" />
+                      デモ動画を見る →
+                    </div>
+                  </div>
+
+                  <div 
+                    onClick={() => setCurrentPage('ams')}
+                    className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="bg-green-100 p-2 rounded-full mr-3">
+                        <ClipboardCheck className="w-6 h-6 text-green-600" />
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-800">AMSスコアテスト</h2>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-3">
+                      17項目の質問に答えるだけで、男性更年期障害の可能性をチェック。症状の重症度を簡単に評価できます。
+                    </p>
+                    <div className="flex items-center text-indigo-600 font-semibold text-sm">
+                      <ClipboardCheck className="w-4 h-4 mr-2" />
+                      テストを体験する →
+                    </div>
+                  </div>
+
+                  <div 
+                    onClick={() => setCurrentPage('screening')}
+                    className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-amber-300"
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="bg-amber-100 p-2 rounded-full mr-3">
+                        <ClipboardCheck className="w-6 h-6 text-amber-600" />
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-800">スクリーニング結果</h2>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-3">
+                      血液検査とAMSスコアを組み合わせた総合的な健康評価。あなたの現在の状態を詳しく分析します。
+                    </p>
+                    <div className="flex items-center text-amber-700 font-semibold text-sm">
+                      <TestTube className="w-4 h-4 mr-2" />
+                      結果を見る →
+                    </div>
+                  </div>
+                </div>
+
+                <div className="max-w-4xl mx-auto">
+                  <div 
+                    onClick={() => setCurrentPage('medical')}
+                    className="bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-50 rounded-2xl shadow-lg p-8 cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2 border-emerald-200"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center flex-1">
+                        <div className="bg-gradient-to-br from-blue-100 to-indigo-100 p-3 rounded-full mr-4">
+                          <Calendar className="w-8 h-8 text-blue-600" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-3 mb-2">
+                            <h2 className="text-2xl font-bold text-gray-800">専門医による診療</h2>
+                            <div className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-3 py-1 rounded-full text-xs">
+                              麻布台クリニック
+                            </div>
+                          </div>
+                          <p className="text-gray-600 mt-1">オンラインまたは対面での専門的な診察</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2 ml-4">
+                        <div className="text-center">
+                          <div className="w-16 h-20 bg-gradient-to-b from-emerald-400 to-teal-500 rounded-t-lg shadow-lg"></div>
+                          <div className="w-16 h-2 bg-emerald-600"></div>
+                          <div className="flex justify-center mt-1 space-x-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm mb-3">
+                      麻布台ヒルズ内の総合クリニック。専門医とのオンライン相談で、検査結果に基づいた適切な治療をご提案。
+                      神谷町駅直結で、自宅から気軽に、または快適な環境で受診できます。
+                    </p>
+                    <div className="flex items-center text-indigo-600 font-semibold">
+                      <Calendar className="w-5 h-5 mr-2" />
+                      サービス概要を見る →
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="max-w-6xl mx-auto mt-8 text-center text-gray-500 text-sm">
+                <p>※ このデモは展示用のプロトタイプです</p>
+              </div>
+            </div>
+          );
+
+          const TassoPage = () => (
+            <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-100 p-8">
+              <div className="max-w-6xl mx-auto">
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center text-gray-600 hover:text-gray-900 mb-6 text-lg"
+                >
+                  <ArrowLeft className="w-6 h-6 mr-2" />
+                  トップページに戻る
+                </button>
+
+                <div className="bg-white rounded-2xl shadow-2xl p-10">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-red-100 p-4 rounded-full mr-4">
+                      <TestTube className="w-10 h-10 text-red-600" />
+                    </div>
+                    <div>
+                      <h1 className="text-4xl font-bold text-gray-800">TASSO血液検査</h1>
+                      <p className="text-gray-600 mt-1">自宅で簡単、正確な血液検査</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-900 rounded-xl p-20 mb-8 text-center">
+                    <Video className="w-24 h-24 text-white mx-auto mb-4" />
+                    <p className="text-white text-xl">デモ動画</p>
+                    <p className="text-gray-400 mt-2">実際の使用方法をご覧いただけます</p>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-6 mb-8">
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <h3 className="font-bold text-lg mb-2 text-gray-800">①自宅で採血</h3>
+                      <p className="text-gray-600 text-sm">指先からわずか数滴の血液で検査が可能</p>
+                    </div>
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <h3 className="font-bold text-lg mb-2 text-gray-800">②郵送で簡単</h3>
+                      <p className="text-gray-600 text-sm">採血後はポストに投函するだけ</p>
+                    </div>
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <h3 className="font-bold text-lg mb-2 text-gray-800">③詳細な結果</h3>
+                      <p className="text-gray-600 text-sm">テストステロン値など詳細データを提供</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-xl p-6">
+                    <h3 className="font-bold text-xl mb-4 text-gray-800">検査項目</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        <span className="text-gray-700">総テストステロン</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        <span className="text-gray-700">遊離テストステロン</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        <span className="text-gray-700">DHEA-S</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        <span className="text-gray-700">コルチゾール</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+
+          const AmsPage = () => (
+            <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-8">
+              <div className="max-w-6xl mx-auto">
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center text-gray-600 hover:text-gray-900 mb-6 text-lg"
+                >
+                  <ArrowLeft className="w-6 h-6 mr-2" />
+                  トップページに戻る
+                </button>
+
+                <div className="bg-white rounded-2xl shadow-2xl p-10">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-green-100 p-4 rounded-full mr-4">
+                      <ClipboardCheck className="w-10 h-10 text-green-600" />
+                    </div>
+                    <div>
+                      <h1 className="text-4xl font-bold text-gray-800">AMSスコアテスト</h1>
+                      <p className="text-gray-600 mt-1">男性更年期障害の簡易チェック</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-green-50 rounded-xl p-6 mb-8">
+                    <h3 className="font-bold text-xl mb-3 text-gray-800">AMSスコアとは？</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Aging Males' Symptoms（AMS）スコアは、男性更年期障害の症状を評価するための国際的に標準化された質問票です。
+                      17の質問項目に5段階で回答し、合計スコアで症状の重症度を判定します。
+                    </p>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="font-bold text-xl mb-4 text-gray-800">質問例（デモ）</h3>
+                    <div className="space-y-4">
+                      {[
+                        '1. 全般的な健康状態の低下',
+                        '2. 筋力の低下',
+                        '3. 気分が沈み憂うつで、涙もろい'
+                      ].map((question, idx) => (
+                        <div key={idx} className="bg-gray-50 rounded-xl p-6">
+                          <p className="font-semibold text-gray-800 mb-3">{question}</p>
+                          <div className="flex gap-3">
+                            {['なし', '軽い', '中等度', '重い', '非常に重い'].map((label, i) => (
+                              <button key={i} className="flex-1 bg-white border-2 border-gray-200 rounded-lg py-3 hover:border-green-500 hover:bg-green-50 transition-all">
+                                {label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-gray-500 text-sm mt-4 text-center">※ 実際のテストでは17の質問項目があります</p>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-xl p-6">
+                    <h3 className="font-bold text-xl mb-4 text-gray-800">スコア判定基準</h3>
+                    <div className="grid grid-cols-4 gap-4">
+                      {[
+                        { range: '17-26点', label: '症状なし', color: 'green' },
+                        { range: '27-36点', label: '軽度', color: 'yellow' },
+                        { range: '37-49点', label: '中等度', color: 'orange' },
+                        { range: '50点以上', label: '重度', color: 'red' }
+                      ].map((item, idx) => (
+                        <div key={idx} className={`bg-${item.color}-100 rounded-lg p-4 text-center`}>
+                          <p className={`font-bold text-lg text-${item.color}-700`}>{item.range}</p>
+                          <p className="text-sm text-gray-700 mt-1">{item.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+
+          const ScreeningPage = () => (
+            <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 p-8">
+              <div className="max-w-6xl mx-auto">
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center text-gray-600 hover:text-gray-900 mb-6 text-lg"
+                >
+                  <ArrowLeft className="w-6 h-6 mr-2" />
+                  トップページに戻る
+                </button>
+
+                <div className="bg-white rounded-2xl shadow-2xl p-10">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-amber-100 p-4 rounded-full mr-4">
+                      <ClipboardCheck className="w-10 h-10 text-amber-600" />
+                    </div>
+                    <div>
+                      <h1 className="text-4xl font-bold text-gray-800">総合スクリーニング結果</h1>
+                      <p className="text-gray-600 mt-1">血液検査 + AMSスコアの統合評価</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-6 mb-8 border-2 border-amber-300">
+                    <h3 className="font-bold text-2xl mb-2 text-gray-800">あなたの総合評価</h3>
+                    <p className="text-3xl font-bold text-amber-700 mb-2">中等度の注意が必要</p>
+                    <p className="text-gray-700">専門医への相談をおすすめします</p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6 mb-8">
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <div className="flex items-center mb-4">
+                        <TestTube className="w-6 h-6 text-red-600 mr-2" />
+                        <h3 className="font-bold text-xl text-gray-800">血液検査結果</h3>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        {[
+                          { name: '総テストステロン', value: '2.8 ng/mL', width: '35%', color: 'red', range: '3.0-8.5 ng/mL', status: '⚠ 基準値以下', statusColor: 'red' },
+                          { name: '遊離テストステロン', value: '6.5 pg/mL', width: '45%', color: 'orange', range: '8.5-27.9 pg/mL', status: '⚠ やや低値', statusColor: 'orange' },
+                          { name: 'DHEA-S', value: '145 μg/dL', width: '70%', color: 'green', range: '80-560 μg/dL', status: '✓ 正常範囲', statusColor: 'green' }
+                        ].map((test, idx) => (
+                          <div key={idx} className="bg-white rounded-lg p-4">
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-gray-700 font-semibold">{test.name}</span>
+                              <span className={`text-${test.color}-600 font-bold text-lg`}>{test.value}</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-3">
+                              <div className={`bg-${test.color}-500 h-3 rounded-full`} style={{width: test.width}}></div>
+                            </div>
+                            <p className="text-sm text-gray-600 mt-1">基準値: {test.range}</p>
+                            <p className={`text-sm text-${test.statusColor}-600 font-semibold mt-1`}>{test.status}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-green-50 rounded-xl p-6">
+                      <div className="flex items-center mb-4">
+                        <ClipboardCheck className="w-6 h-6 text-green-600 mr-2" />
+                        <h3 className="font-bold text-xl text-gray-800">AMSスコア結果</h3>
+                      </div>
+
+                      <div className="bg-white rounded-lg p-6 mb-4 text-center">
+                        <p className="text-gray-600 mb-2">総合スコア</p>
+                        <p className="text-6xl font-bold text-orange-600 mb-2">42点</p>
+                        <p className="text-lg font-semibold text-orange-600">中等度</p>
+                      </div>
+
+                      <div className="space-y-3">
+                        {[
+                          { name: '心理的症状', score: '18点', width: '60%', color: 'orange' },
+                          { name: '身体的症状', score: '15点', width: '50%', color: 'yellow' },
+                          { name: '性機能症状', score: '9点', width: '70%', color: 'red' }
+                        ].map((symptom, idx) => (
+                          <div key={idx} className="bg-white rounded-lg p-4">
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-gray-700">{symptom.name}</span>
+                              <span className={`text-${symptom.color}-600 font-bold`}>{symptom.score}</span>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                              <div className={`bg-${symptom.color}-500 h-2 rounded-full`} style={{width: symptom.width}}></div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 mb-6">
+                    <h3 className="font-bold text-xl mb-4 text-gray-800 flex items-center">
+                      <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm">📊</span>
+                      統合的な解釈
+                    </h3>
+                    <div className="space-y-3 text-gray-700 leading-relaxed">
+                      <p>
+                        <span className="font-semibold text-gray-800">血液検査の結果：</span>
+                        総テストステロン値が基準値を下回っており、遊離テストステロンもやや低値を示しています。
+                        これは男性ホルモンの低下を示唆しています。
+                      </p>
+                      <p>
+                        <span className="font-semibold text-gray-800">AMSスコアの結果：</span>
+                        42点の中等度スコアは、日常生活に影響を与える症状があることを示しています。
+                        特に心理的症状と性機能症状のスコアが高い傾向にあります。
+                      </p>
+                      <p className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                        <span className="font-semibold text-amber-800">総合評価：</span>
+                        血液検査で実際にホルモン値の低下が確認され、自覚症状も中等度以上あることから、
+                        <span className="font-bold text-amber-800">男性更年期障害（LOH症候群）の可能性</span>が考えられます。
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div 
+                      onClick={() => setCurrentPage('medical')}
+                      className="bg-blue-50 rounded-xl p-6 cursor-pointer hover:bg-blue-100 transition-all border-2 border-blue-200 hover:border-blue-400"
+                    >
+                      <Calendar className="w-8 h-8 text-blue-600 mb-3" />
+                      <h4 className="font-bold text-gray-800 mb-2">専門医に相談</h4>
+                      <p className="text-sm text-gray-600">オンライン診療または対面診療で詳しく相談</p>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                      <TestTube className="w-8 h-8 text-gray-600 mb-3" />
+                      <h4 className="font-bold text-gray-800 mb-2">経過観察</h4>
+                      <p className="text-sm text-gray-600">3ヶ月後に再検査を推奨</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+
+          const MedicalPage = () => (
+            <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-100 p-8">
+              <div className="max-w-6xl mx-auto">
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center text-gray-600 hover:text-gray-900 mb-6 text-lg"
+                >
+                  <ArrowLeft className="w-6 h-6 mr-2" />
+                  トップページに戻る
+                </button>
+
+                <div className="bg-white rounded-2xl shadow-2xl p-10">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-blue-100 p-4 rounded-full mr-4">
+                      <Calendar className="w-10 h-10 text-blue-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-3 mb-1">
+                        <h1 className="text-4xl font-bold text-gray-800">専門医による診療</h1>
+                      </div>
+                      <p className="text-sm text-gray-500">医療法人社団 なかよし会</p>
+                      <p className="text-xl font-bold text-gray-700">麻布台クリニック</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-2xl overflow-hidden mb-8 shadow-2xl">
+                    <div className="relative">
+                      <div className="w-full h-64 bg-gradient-to-br from-blue-100 via-emerald-100 to-teal-100 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-6xl mb-4">🏢</div>
+                          <div className="text-2xl font-bold text-gray-700">麻布台クリニック</div>
+                          <div className="text-gray-600 mt-2">麻布台ヒルズ タワープラザ 4F</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white p-8">
+                      <div className="flex items-center justify-between mb-6 pb-6 border-b-2 border-gray-100">
+                        <div>
+                          <p className="text-sm text-gray-500">医療法人社団 なかよし会</p>
+                          <p className="text-2xl font-bold text-gray-800">麻布台クリニック</p>
+                          <p className="text-xs text-gray-500 mt-1">AZABUDAI CLINIC</p>
+                        </div>
+                        <div className="text-right">
+                          <div className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-1 rounded-full text-sm">
+                            麻布台ヒルズ タワープラザ 4階
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <p className="text-gray-700 leading-relaxed mb-4">
+                            TASSO血液検査とAMSスコアの結果をもとに、男性更年期障害に精通した専門医が診察。
+                            オンライン診療・対面診療のいずれにも対応し、適切な治療方針や処方についてアドバイスを提供します。
+                          </p>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-emerald-50 rounded-lg p-3">
+                              <div className="flex items-center text-emerald-700">
+                                <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                                <span className="font-semibold text-sm">アクセス</span>
+                              </div>
+                              <p className="text-gray-700 text-sm mt-1 ml-4">神谷町駅 地下通路直結</p>
+                            </div>
+                            <div className="bg-blue-50 rounded-lg p-3">
+                              <div className="flex items-center text-blue-700">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                <span className="font-semibold text-sm">診療科目</span>
+                              </div>
+                              <p className="text-gray-700 text-sm mt-1 ml-4">総合診療・健診・人間ドック</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <h3 className="font-bold text-xl mb-4 text-gray-800">診療の流れ</h3>
+                    <div className="grid grid-cols-4 gap-4">
+                      {[
+                        { num: 1, title: '予約', desc: 'Web・電話で予約' },
+                        { num: 2, title: '問診票', desc: '検査結果と症状を入力' },
+                        { num: 3, title: '診察', desc: '専門医による診療' },
+                        { num: 4, title: '治療開始', desc: '処方・治療プラン決定' }
+                      ].map((step) => (
+                        <div key={step.num} className="bg-gradient-to-b from-blue-100 to-blue-50 rounded-xl p-6 text-center">
+                          <div className="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3 text-xl font-bold">
+                            {step.num}
+                          </div>
+                          <p className="font-semibold text-gray-800 mb-2">{step.title}</p>
+                          <p className="text-sm text-gray-600">{step.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6 mb-8">
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h3 className="font-bold text-xl mb-4 text-gray-800">診療形態</h3>
+                      <div className="space-y-4">
+                        <div className="bg-white rounded-lg p-4 border-2 border-blue-200">
+                          <p className="font-bold text-blue-700 mb-2">🏥 対面診療（麻布台クリニック）</p>
+                          <p className="text-sm text-gray-600">神谷町駅地下通路直結でアクセス良好。詳細な診察と検査が可能です。</p>
+                        </div>
+                        <div className="bg-white rounded-lg p-4 border-2 border-indigo-200">
+                          <p className="font-bold text-indigo-700 mb-2">💻 オンライン診療</p>
+                          <p className="text-sm text-gray-600">自宅からビデオ通話で受診可能。処方箋は自宅に郵送されます。</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h3 className="font-bold text-xl mb-4 text-gray-800">対応可能な治療</h3>
+                      <ul className="space-y-3">
+                        {[
+                          'テストステロン補充療法（TRT）',
+                          '漢方薬処方',
+                          '生活習慣指導・栄養指導',
+                          'メンタルケア・カウンセリング',
+                          '定期的な経過観察・フォローアップ'
+                        ].map((treatment, idx) => (
+                          <li key={idx} className="flex items-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            <span className="text-gray-700">{treatment}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 mb-8">
+                    <h3 className="font-bold text-xl mb-6 text-gray-800">麻布台クリニックの特徴</h3>
+                    
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      {[
+                        { title: '洗練された空間', subtitle: '快適な待合室と最新設備', gradient: 'from-gray-100 to-blue-100', icon: '🏢' },
+                        { title: 'Green & Wellness', subtitle: '中央広場を一望', gradient: 'from-emerald-100 to-green-200', icon: '🌳' },
+                        { title: '先進的な医療', subtitle: 'IT活用の健康管理', gradient: 'from-indigo-100 to-purple-100', icon: '💻' }
+                      ].map((feature, idx) => (
+                        <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-md">
+                          <div className={`h-32 bg-gradient-to-br ${feature.gradient} flex items-center justify-center`}>
+                            <div className="text-center">
+                              <div className="text-4xl mb-2">{feature.icon}</div>
+                              <div className="text-xs text-gray-600">{feature.subtitle}</div>
+                            </div>
+                          </div>
+                          <div className="p-3">
+                            <p className="font-semibold text-blue-700 text-sm">{feature.title}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-4">
+                      {[
+                        { icon: '🚇', title: '駅直結の好アクセス', desc: '神谷町駅地下通路から直結で、雨の日も快適にご来院いただけます。' },
+                        { icon: '👨‍⚕️', title: '専門医による診療', desc: '男性更年期に精通した医師が、エビデンスに基づいた治療を提供します。' },
+                        { icon: '🏥', title: '総合的な健康管理', desc: '健康診断・人間ドックも対応し、トータルヘルスケアを実現します。' }
+                      ].map((item, idx) => (
+                        <div key={idx} className="bg-white rounded-lg p-4">
+                          <p className="font-semibold text-blue-700 mb-2">{item.icon} {item.title}</p>
+                          <p className="text-sm text-gray-600">{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-blue-200">
+                    <h3 className="font-bold text-xl mb-6 text-gray-800">アクセス・ご予約</h3>
+                    
+                    <div className="grid grid-cols-2 gap-6 mb-6">
+                      <div className="bg-white rounded-lg p-5 shadow-md">
+                        <p className="font-semibold text-gray-800 mb-4 flex items-center">
+                          <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 text-sm">📍</span>
+                          所在地・アクセス
+                        </p>
+                        
+                        <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg p-4 mb-4">
+                          <div className="text-center">
+                            <div className="inline-block bg-white rounded-lg p-3 shadow-md mb-2">
+                              <div className="text-2xl mb-1">🏢</div>
+                              <div className="text-xs font-bold text-gray-700">麻布台ヒルズ</div>
+                              <div className="text-xs text-gray-600">タワープラザ 4F</div>
+                            </div>
+                            <div className="flex items-center justify-center space-x-2 mt-3">
+                              <div className="w-8 h-1 bg-blue-400"></div>
+                              <div className="bg-blue-500 text-white rounded-full px-3 py-1 text-xs">地下直結</div>
+                              <div className="w-8 h-1 bg-blue-400"></div>
+                            </div>
+                            <div className="inline-block bg-emerald-500 text-white rounded-lg px-4 py-2 mt-3 text-sm font-semibold">
+                              🚇 神谷町駅
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2 text-sm">
+                          <p className="text-gray-700">
+                            <span className="font-semibold">住所：</span>東京都港区麻布台1-3-1<br />
+                            <span className="ml-12">麻布台ヒルズ タワープラザ 4階</span>
+                          </p>
+                          <p className="text-gray-700">
+                            <span className="font-semibold">最寄駅：</span>東京メトロ日比谷線「神谷町駅」<br />
+                            <span className="ml-16 text-blue-600">5番出口 地下通路直結</span>
+                          </p>
+                          <div className="bg-blue-50 rounded p-2 mt-2">
+                            <p className="text-xs text-blue-800">✓ 雨に濡れずにアクセス可能</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-white rounded-lg p-5 shadow-md">
+                        <p className="font-semibold text-gray-800 mb-4 flex items-center">
+                          <span className="bg-indigo-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 text-sm">📞</span>
+                          ご予約・お問い合わせ
+                        </p>
+                        
+                        <div className="space-y-4">
+                          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4">
+                            <p className="font-semibold text-gray-800 mb-2">Web予約システム</p>
+                            <p className="text-sm text-gray-600 mb-3">24時間いつでも予約可能</p>
+                            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                              Web予約はこちら
+                            </button>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg p-4">
+                            <p className="font-semibold text-gray-800 mb-2">お電話での予約</p>
+                            <p className="text-lg font-bold text-blue-600 mb-1">03-5544-9390</p>
+                            <p className="text-xs text-gray-600">一般診療（代表）</p>
+                            <p className="text-lg font-bold text-emerald-600 mb-1 mt-2">03-5544-9395</p>
+                            <p className="text-xs text-gray-600">健康診断・人間ドック専用</p>
+                          </div>
+                          
+                          <div className="border-t pt-3">
+                            <p className="text-sm text-gray-700">
+                              <span className="font-semibold">受付時間：</span>
+                            </p>
+                            <p className="text-sm text-gray-600 ml-4">平日 9:30-18:00</p>
+                            <p className="text-sm text-gray-600 ml-4">土曜 9:30-13:00</p>
+                            <p className="text-xs text-gray-500 mt-2">※ 診療科により時間が異なる場合があります</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white rounded-lg p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div>
+                          <p className="text-xs text-gray-500">医療法人社団 なかよし会</p>
+                          <p className="font-semibold text-gray-700">麻布台クリニック</p>
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          AZABUDAI CLINIC
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        <span className="font-semibold text-gray-700">麻布台ヒルズについて：</span>
+                        「Modern Urban Village」をコンセプトに、緑に包まれた人と人をつなぐ「広場」のような街。
+                        「Green & Wellness」をテーマに、全ての人が健康で生き生きと暮らせる環境を実現しています。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+
+          return (
+            <div>
+              {currentPage === 'home' && <HomePage />}
+              {currentPage === 'tasso' && <TassoPage />}
+              {currentPage === 'ams' && <AmsPage />}
+              {currentPage === 'screening' && <ScreeningPage />}
+              {currentPage === 'medical' && <MedicalPage />}
+            </div>
+          );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MensHealthDemo />);
+    </script>
+</body>
+</html>
